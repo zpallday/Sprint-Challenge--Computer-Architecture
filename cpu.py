@@ -125,7 +125,7 @@ class CPU:
             elif self.ram[self.pc] == '00010001':
                  self.pc = self.ram[self.sp]
                  self.sp += 1
-
+            # CMP
             elif self.ram[self.pc] == '10100111':
                 reg_a = int(self.register[int(self.ram[self.pc + 1], 2)], 2)
                 reg_b = int(self.register[int(self.ram[self.pc + 2], 2)], 2)
@@ -141,13 +141,13 @@ class CPU:
             elif self.ram[self.pc] == '01010100':
                 self.pc = int(self.register[int(self.ram[self.pc + 1], 2)], 2)
 
-            
+            # JEQ
             elif self.ram[self.pc] == '01010101':
                 if self.flag == '00000001':
                     self.pc = int(self.register[int(self.ram[self.pc + 1], 2)], 2)
                 else:
                     self.pc += 2
-
+            # JNE
             elif self.ram[self.pc] == '01010110':
                 if self.flag != '00000001':
                     self.pc = int(self.register[int(self.ram[self.pc + 1], 2)], 2)
